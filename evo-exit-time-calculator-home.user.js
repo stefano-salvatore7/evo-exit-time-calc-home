@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          EVO - Calcola Orario di Uscita (HOME)
 // @namespace     https://unibo.it/
-// @version       2.0
+// @version       2.1
 // @description   Calcola e mostra l'orario di uscita nella pagina HOME. Include selettore fascia oraria e switch 7:12/6:01.
 // @author        Stefano
 // @match         https://personale-unibo.hrgpi.it/*
@@ -432,7 +432,7 @@
 
             // Titolo con icona
             const titleHeader = document.createElement('h4');
-            titleHeader.innerHTML = 'Ora del Giorno <i class="material-symbols-outlined align-middle">schedule</i>';
+            titleHeader.innerHTML = 'Ora del Giorno';
             evoCalculatorContainer.appendChild(titleHeader);
 
             // Wrapper per il contenuto
