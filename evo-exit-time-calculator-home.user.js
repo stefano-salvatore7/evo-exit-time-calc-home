@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name          EVO - Calcola Orario di Uscita (HOME)
 // @namespace     https://unibo.it/
-// @version       1.0
+// @version       2.0
 // @description   Calcola e mostra l'orario di uscita nella pagina HOME. Include selettore fascia oraria e switch 7:12/6:01.
 // @author        Stefano
 // @match         https://personale-unibo.hrgpi.it/*
