@@ -72,17 +72,33 @@
             }
 
             #evoCalculatorContainerHome {
-                border: 1px solid #e0e0e0;
-                border-radius: 8px;
-                padding: 15px;
-                margin-bottom: 15px;
-                background-color: transparent;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                background-color: #fff;
+                border-radius: 0.25rem;
+                box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+                padding: 1.25rem;
+                margin-bottom: 1.5rem;
+            }
+
+            #evoCalculatorContainerHome h4 {
+                font-size: 1.5rem;
+                margin-bottom: 0.75rem;
+                color: #212529;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+
+            #evoCalculatorContainerHome h4 i {
+                font-size: 1.5rem;
+                vertical-align: middle;
+            }
+
+            .evo-content-wrapper-home {
                 display: flex;
                 align-items: flex-start;
                 gap: 15px;
                 flex-wrap: wrap;
-                width: fit-content;
             }
 
             .evo-label-home {
@@ -414,6 +430,15 @@
             const evoCalculatorContainer = document.createElement('div');
             evoCalculatorContainer.id = 'evoCalculatorContainerHome';
 
+            // Titolo con icona
+            const titleHeader = document.createElement('h4');
+            titleHeader.innerHTML = 'Ora del Giorno <i class="material-symbols-outlined align-middle">schedule</i>';
+            evoCalculatorContainer.appendChild(titleHeader);
+
+            // Wrapper per il contenuto
+            const contentWrapper = document.createElement('div');
+            contentWrapper.classList.add('evo-content-wrapper-home');
+
             // Gruppo "Linea oraria"
             const lineaOrariaGroupWrapper = document.createElement('div');
             lineaOrariaGroupWrapper.classList.add('evo-group-wrapper-home', 'linea-oraria');
@@ -467,15 +492,15 @@
             calcModeSwitch.appendChild(sixOneSegment);
 
             lineaOrariaGroupWrapper.appendChild(evoControlsInner);
-            evoCalculatorContainer.appendChild(lineaOrariaGroupWrapper);
+            contentWrapper.appendChild(lineaOrariaGroupWrapper);
 
-            // Gruppo "Ora del giorno"
+            // Gruppo "Orario di uscita"
             const oraDelGiornoGroupWrapper = document.createElement('div');
             oraDelGiornoGroupWrapper.classList.add('evo-group-wrapper-home');
 
             const oraDelGiornoLabel = document.createElement('div');
             oraDelGiornoLabel.classList.add('evo-label-home');
-            oraDelGiornoLabel.textContent = 'Ora del giorno';
+            oraDelGiornoLabel.textContent = 'Orario di uscita';
             oraDelGiornoGroupWrapper.appendChild(oraDelGiornoLabel);
 
             // Box Compatta Orario
@@ -484,7 +509,8 @@
             compactExitTimeBox.innerHTML = `<span class="exit-label">${EXIT_LABEL}</span> <span class="value">--:--</span>`;
             oraDelGiornoGroupWrapper.appendChild(compactExitTimeBox);
 
-            evoCalculatorContainer.appendChild(oraDelGiornoGroupWrapper);
+            contentWrapper.appendChild(oraDelGiornoGroupWrapper);
+            evoCalculatorContainer.appendChild(contentWrapper);
 
             // Inserimento SOPRA la card "Timbrature di giornata"
             const clockingsCardElement = clockingsCard.closest('.card');
